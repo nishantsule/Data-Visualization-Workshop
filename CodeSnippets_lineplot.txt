@@ -1,0 +1,53 @@
+-----------------------------
+Matlab
+-----------------------------
+S1: 
+
+p3(1).Color = [0 0.4470 0.7410];
+p4(1).Color = [0.8500 0.3250 0.0980];
+p3(2).Color = [0 0.4470 0.7410];
+p4(2).Color = [0.8500 0.3250 0.0980];
+
+-----------------------------
+Python
+-----------------------------
+S1:
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+S2:
+
+AAPLcp = data['AAPLcp']
+AAPLhp = data['AAPLhp']
+AAPLlp = data['AAPLlp']
+AAPLop = data['AAPLop']
+AAPLt = data['AAPLt']
+AAPLvol = data['AAPLvol']
+IBMcp = data['IBMcp']
+IBMhp = data['IBMhp']
+IBMlp = data['IBMlp']
+IBMop = data['IBMop']
+IBMt = data['IBMt']
+IBMvol = data['IBMvol']
+
+S3:
+
+import datetime as dtime
+import matplotlib.dates as dt
+
+AAPLtnew = np.empty(len(AAPLt))
+for i in range(0, len(AAPLt)):
+    dto = dtime.datetime.strptime(AAPLt[i], '%d-%b-%Y')
+    AAPLtnew[i] = dt.date2num(dto)
+AAPLt = AAPLtnew
+IBMtnew = np.empty(len(IBMt))
+for i in range(0, len(IBMt)):
+    dto = dtime.datetime.strptime(IBMt[i], '%d-%b-%Y')
+    IBMtnew[i] = dt.date2num(dto)
+IBMt = IBMtnew
+
+S4:
+
+datemin = dt.date2num(dtime.datetime.strptime('2017-05-01', '%Y-%m-%d'))
+datemax = dt.date2num(dtime.datetime.strptime('2017-10-30', '%Y-%m-%d'))

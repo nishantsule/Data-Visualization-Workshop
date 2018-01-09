@@ -1,0 +1,14 @@
+------------------------------
+Python
+------------------------------
+S1:
+
+data = np.load('cardata.npz', encoding='bytes')
+data.files
+
+S2:
+
+Acceleration = data['Acceleration']
+Horsepower = data['Horsepower']
+MPG = data['MPG']
+Weight = data['Weight']

@@ -1,0 +1,56 @@
+-------------------------------
+Matlab
+-------------------------------
+S1:
+
+australiap = (australia_qty ./ total_qty) * 100;
+denmarkp = (denmark_qty ./ total_qty) * 100;
+francep = (france_qty ./ total_qty) * 100;
+germanyp = (germany_qty ./ total_qty) * 100;
+japanp = (japan_qty ./ total_qty) * 100;
+usap = (usa_qty ./ total_qty) * 100;
+
+--------------------------------
+Python
+--------------------------------
+
+S1:
+
+data = np.load('UNdataSolarConsumption.npz', encoding='bytes')
+data.files
+
+S2:
+
+australia_qty = data['australia_qty']
+denmark_qty = data['denmark_qty']
+france_qty = data['france_qty']
+germany_qty = data['germany_qty']
+japan_qty = data['japan_qty']
+usa_qty = data['usa_qty']
+year = data['year']
+
+S3:
+
+australia_qty = australia_qty.flatten()
+denmark_qty = denmark_qty.flatten()
+france_qty = france_qty.flatten()
+germany_qty = germany_qty.flatten()
+japan_qty = japan_qty.flatten()
+usa_qty = usa_qty.flatten()
+year = year.flatten()
+
+S4:
+
+australia_qty = australia_qty.astype(float)
+denmark_qty = denmark_qty.astype(float)
+france_qty = france_qty.astype(float)
+germany_qty = germany_qty.astype(float)
+japan_qty = japan_qty.astype(float)
+usa_qty = usa_qty.astype(float)
+total_qty = australia_qty + denmark_qty + france_qty + germany_qty + japan_qty + usa_qty
+australiap = np.true_divide(australia_qty, total_qty) * 100;
+denmarkp = np.true_divide(denmark_qty, total_qty) * 100;
+francep = np.true_divide(france_qty, total_qty) * 100;
+germanyp = np.true_divide(germany_qty, total_qty) * 100;
+japanp = np.true_divide(japan_qty, total_qty) * 100;
+usap = np.true_divide(usa_qty, total_qty) * 100;
